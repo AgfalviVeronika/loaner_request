@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element extends="task" label="Loaner Request" max_length="40" name="x_snc_loaner_reque_loaner_request" type="collection"/>
+    <element extends="task" label="Loaner Request" max_length="40" name="x_snc_loaner_reque_loaner_request" type="collection">
+        <element label="End time" mandatory="true" max_length="40" name="end_time" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Location to be used" mandatory="true" max_length="40" name="location_to_be_used" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="other" type="string"/>
+        <element label="Requested for" mandatory="true" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
+        <element label="Start time" mandatory="true" max_length="40" name="start_time" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="cmdb_ci_mobile_device" label="Item type" mandatory="true" max_length="40" name="u_choice_1" type="string">
+            <choice>
+                <element label="Laptop" sequence="0" value="Laptop"/>
+                <element label="Mobile Phone" sequence="1" value="Mobile Phone"/>
+                <element label="Projector" sequence="2" value="Projector"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="sc" label="Depot" max_length="40" name="u_depot" type="string">
+            <choice>
+                <element label="New York" sequence="0" value="ny"/>
+                <element label="London" sequence="1" value="london"/>
+                <element label="Buenos Aires" sequence="2" value="ba"/>
+                <element label="Santa Clara" sequence="3" value="sc"/>
+                <element label="Singapore" sequence="4" value="singapore"/>
+                <element label="Sydney" sequence="5" value="sydney"/>
+                <element label="Other" sequence="6" value="other"/>
+            </choice>
+        </element>
+    </element>
 </database>
